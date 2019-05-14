@@ -5,32 +5,27 @@ let val =siteContent;  // val is "Hello";
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
-let navs = document.querySelectorAll("header nav a");
-navs[0].textContent = siteContent["nav"]["nav-item-1"]
-navs[1].textContent = siteContent["nav"]["nav-item-2"]
-navs[2].textContent = siteContent["nav"]["nav-item-3"]
-navs[3].textContent = siteContent["nav"]["nav-item-4"]
-navs[4].textContent = siteContent["nav"]["nav-item-5"]
-navs[5].textContent = siteContent["nav"]["nav-item-6"]
+
+
 
 let headerNav = document.querySelector("header nav");
-const newA = document.createElement("a");
-newA.textContent = "Blog";
-newA.setAttribute('href', "#")
+let newA = document.createElement("a");
 headerNav.append(newA);
-const preA = document.createElement("a");
-preA.textContent = "Login";
-preA.setAttribute('href', "#")
+
+let preA = document.createElement("a");
 headerNav.prepend(preA);
 
-let navsNew = document.querySelectorAll("header nav a");
-navsNew.forEach(element => {element.style.color = "green";});
+let navs = document.querySelectorAll("header nav a");
+let navContent = siteContent["nav"];
+navContent['nav-item-7']="Blog"
+navContent['nav-item-0']="Login"
+navs.forEach((nav,i) => {
+	nav.textContent = navContent[`nav-item-${i}`],
+	nav.style.color = "green";
+	nav.href = "#0"
+} );
 
-// let ctaH1 = document.querySelector("section.cta h1");
-// ctaH1.textContent = siteContent["cta"]["h1"];
 
-
-// let sections = document.getElementsByTagName("section");
 let ctaSection = document.querySelector(".cta");
 let ctaH1 = ctaSection.querySelector('h1')
 let h1List = siteContent["cta"]["h1"].split(' ');
